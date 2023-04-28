@@ -2,7 +2,8 @@ const express=require('express')
 const bodyParser=require('body-parser',);
 
 const {dbConnect} = require('./utils/database');
-const Professor=require('./models/professor')
+const professorRoutes=require('./routes/professor')
+const authRoutes=require('./routes/auth')
 
 const db=require('./utils/database')
 const PORT=4000;

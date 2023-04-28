@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const awardSchema = new Schema({
+const commentSchema = new Schema({
   comment: {
     type: String,
     required: true,
@@ -11,7 +11,7 @@ const awardSchema = new Schema({
     required: true,
   },
   date: {
-    type: Date.now(),
+    type: Date,
     required: true,
   },
   professor_id: {
