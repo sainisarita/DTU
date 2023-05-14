@@ -1,14 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const personalInfoSchema = new Schema({
+  image: {
+    type: Buffer,
+    required: true,
+  },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   gender: {
     type: String,
-    required: true
+    required: true,
   },
   department: {
     type: String,
@@ -16,21 +20,21 @@ const personalInfoSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
   },
   officeNumber: {
     type: String,
-    required: true
+    required: true,
   },
   officeAddress: {
     type: String,
-    required: true
+    required: true,
   },
-  professor_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
-    ref: 'Professor',
-    required: true
+    required: true,
+    ref: "User",
   }
 });
 
-module.exports = mongoose.model('PersonalInfo', personalInfoSchema);
+module.exports = mongoose.model("PersonalInfo", personalInfoSchema);

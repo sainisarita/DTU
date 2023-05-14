@@ -18,11 +18,11 @@ const qualificationSchema=new Schema({
         type:String,
         required:true
     },
-    processor_id:{
-        type:Schema.Types.ObjectId,
-        ref:'Professor',
-        required:true
-    }
+    user_id: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "User",
+      }
 
 
 })

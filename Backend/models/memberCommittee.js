@@ -16,14 +16,12 @@ const memberCommitteeSchema=new Schema({
       },
       optionalField: {
         type: String,
-        required: true,
+        required: false,
       },
-      professor_id: {
+      user_id: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: "Professor",
-
-
+        ref: "User",
       }
 })
 

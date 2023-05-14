@@ -30,10 +30,10 @@ const patentSchema = new Schema({
     type: String,
     required: true,
   },
-  professor_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Professor",
+    ref: "User",
   }
 });
 

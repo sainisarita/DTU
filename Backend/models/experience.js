@@ -27,11 +27,11 @@ const experienceSchema = new Schema({
     type: String,
     required: true,
   },
-  professsor_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Professor",
-  },
+    ref: "User",
+  }
 });
 
 module.exports = mongoose.model("Experience", experienceSchema);

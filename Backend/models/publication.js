@@ -19,7 +19,7 @@ const publicationSchema = new Schema({
     required: true,
   },
   pages: {
-    type: Number,
+    type: String,
     required: true,
   },
   DOI: {
@@ -30,10 +30,10 @@ const publicationSchema = new Schema({
     type: String,
     required: true,
   },
-  professor_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Professor"
+    ref: "User",
   }
 });
 

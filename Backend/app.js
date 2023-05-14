@@ -1,25 +1,28 @@
-const express=require('express')
-const bodyParser=require('body-parser',);
+const express = require('express');
+const multer = require('multer');
+require('dotenv').config();
+const { dbConnect } = require('./utils/database');
 
-const {dbConnect} = require('./utils/database');
-const professorRoutes=require('./routes/professor')
-const authRoutes=require('./routes/auth')
+const postRoutes = require('./routes/postRoutes');
+const authRoutes = require('./routes/auth');
+const editRoutes = require('./routes/editRoutes');
+const getRoutes = require('./routes/getRoutes');
 
-const db=require('./utils/database')
-const PORT=4000;
+const PORT = process.env.PORT || 4000;
 
-const app=express()
+const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(multer().single('image')); // Add multer middleware here
 
-app.use(bodyParser.urlencoded({extended:false}))
-app.use(bodyParser.json({extended:false}))
-
-app.get('/',(req,res,next)=>{
-    res.send('<h1>Hello server</h1>')
-})
+app.use(postRoutes);
+app.use(authRoutes);
+app.use(editRoutes);
+app.use(getRoutes);
 
 dbConnect()
-.then(() => {
+  .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is started at port ${PORT}`);
     });
@@ -27,4 +30,3 @@ dbConnect()
   .catch((err) => {
     console.error('Database connection failed:', err);
   });
-  

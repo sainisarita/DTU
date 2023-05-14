@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
-// ./utils/database.js
-const DB_URI = 'mongodb+srv://sarita:sarita9643@cluster0.gbywgfa.mongodb.net/DTU';
-
+require('dotenv').config();
 function dbConnect() {
-  return mongoose.connect(DB_URI, {
+  return mongoose.connect(process.env.MONGO_SRV_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(()=>{

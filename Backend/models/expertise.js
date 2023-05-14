@@ -12,11 +12,11 @@ const expertiseSchema = new Schema({
     required: true,
   },
 
-  professsor_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Professor",
-  },
+    ref: "User",
+  }
 });
 
 module.exports = mongoose.model("Expertise", expertiseSchema);

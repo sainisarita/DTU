@@ -16,13 +16,13 @@ const awardSchema = new Schema({
   },
   optional:{
     type:String,
-    required:true
+    required:false
   },
-  professor_id: {
+  user_id: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Professor",
+    ref: "User",
   },
 });
 
-module.exports = mongoose.model("award", awardSchema);
+module.exports = mongoose.model("Award", awardSchema);
